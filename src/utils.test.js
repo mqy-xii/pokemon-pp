@@ -84,6 +84,32 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
+  test("should return Pokemon in alphabetical order", () => {
+    // Added this line on my own
+    // ARRANGE Inputs
+    const INPUT = [
+      { name: "Squirtle" },
+      { name: "Bulbasaur" },
+      { name: "Pikachu" },
+      { name: "Charmander" },
+    ];
+
+    // ARRANGE Outputs
+    // For outputs, I was on the right track with having an array of names, but I just had strings rather than objects.
+    const EXPECTED_OUTPUT = [
+      { name: "Bulbasaur" },
+      { name: "Charmander" },
+      { name: "Pikachu" },
+      { name: "Squirtle" },
+    ];
+
+    // ACT
+    const actualOutput = sortByName(INPUT);
+
+    // ASSERT
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+  });
+
   // TODO: Write test to verify Pokemon are sorted alphabetically
   // TODO: Write test to verify original array is not modified (immutability)
 });

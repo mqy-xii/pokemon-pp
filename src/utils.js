@@ -24,6 +24,9 @@ export const getStrongestPokemon = (pokemonList) => {
   return strongest;
 };
 
+// TDD - Test Driven Development
+// Write failing tests, watch them fail, and write the fix.
+
 export const sortByName = (pokemonList) => {
   // TODO: Implement this function
   // Hint: Use array sort method
