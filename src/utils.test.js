@@ -84,7 +84,7 @@ describe("getStrongestPokemon", () => {
 });
 
 describe("sortByName", () => {
-  test("should return Pokemon in alphabetical order", () => {
+  test("should return Pokemon in ascending order without mutating the original array", () => {
     // Added this line on my own
     // ARRANGE Inputs
     const INPUT = [
@@ -93,6 +93,9 @@ describe("sortByName", () => {
       { name: "Pikachu" },
       { name: "Charmander" },
     ];
+
+    const ORIGINAL_SNAPSHOT = structuredClone(INPUT); // Creates deep copy to check for mutations
+    // ALTERNATIVE: const ORIGINAL_SNAPSHOT = INPUT.map((p) => ({ ...p }));
 
     // ARRANGE Outputs
     // For outputs, I was on the right track with having an array of names, but I just had strings rather than objects.
@@ -108,10 +111,9 @@ describe("sortByName", () => {
 
     // ASSERT
     expect(actualOutput).toEqual(EXPECTED_OUTPUT);
+    expect(actualOutput).not.toBe(INPUT);
+    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT);
   });
-
-  // TODO: Write test to verify Pokemon are sorted alphabetically
-  // TODO: Write test to verify original array is not modified (immutability)
 });
 
 describe("calculateAverageHP", () => {

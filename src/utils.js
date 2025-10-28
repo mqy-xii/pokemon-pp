@@ -32,4 +32,5 @@ export const sortByName = (pokemonList) => {
   // .sort() compares a versus b
   // name of a localeCompare name of b
   return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
+  // ALTERNATIVE: return structuredClone(pokemonList).sort((a, b) => a.name.localeCompare(b.name))
 };
