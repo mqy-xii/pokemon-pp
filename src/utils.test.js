@@ -26,17 +26,17 @@ const MOCK_DATA = [
 
 describe("filterByType", () => {
   test("should return only fire type Pokemon", () => {
-    // ARRANGE Inputs
+    // ARRANGE Inputs – set up code
     const POKEMON_TYPE = "fire";
 
     // ARRANGE Outputs
     const EXPECTED_LENGTH = 1;
     const EXPECTED_NAME = "Charmander";
 
-    // ACT
+    // ACT – actions we want to perform
     const result = filterByType(MOCK_DATA, POKEMON_TYPE);
 
-    // ASSERT
+    // ASSERT – check that the result matches the expectation
     expect(result.length).toBe(EXPECTED_LENGTH);
     expect(result[0].name).toBe(EXPECTED_NAME);
   });
@@ -77,9 +77,30 @@ describe("getPokemonNames", () => {
 });
 
 describe("getStrongestPokemon", () => {
-  test("should return Pokemon with highest attack", () => {
-    const result = getStrongestPokemon(MOCK_DATA);
-    expect(result.name).toBe("Pikachu"); // Pikachu has 55 attack
+  // test("should return Pokemon with highest attack", () => {
+  //   const result = getStrongestPokemon(MOCK_DATA);
+  //   expect(result.name).toBe("Pikachu"); // Pikachu has 55 attack
+  // });
+
+  test("should return all Pokemon when multiple have the same highest attack", () => {
+    // ARRANGE input – hypothesis
+    const INPUT = [
+      { name: "Politoed", attack: 42 },
+      { name: "Palafin", attack: 12 },
+      { name: "Darkrai", attack: 70 },
+      { name: "Ceruledge", attack: 70 },
+    ];
+    // ARRANGE output
+    const EXPECTED_OUTPUT = [
+      { name: "Darkrai", attack: 70 },
+      { name: "Ceruledge", attack: 70 },
+    ];
+
+    // ACT – running the experiment
+    const actualOutput = getStrongestPokemon(INPUT);
+
+    // ASSERT –
+    expect(actualOutput).toEqual(EXPECTED_OUTPUT);
   });
 });
 
