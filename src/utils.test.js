@@ -1,4 +1,5 @@
 // ARRANGE, ACT, ASSERT
+// npm test
 import { describe, test, expect } from "vitest";
 import {
   filterByType,
@@ -32,7 +33,8 @@ describe("filterByType", () => {
     const EXPECTED_LENGTH = 1;
     const EXPECTED_NAME = "Charmander";
 
-    const result = filterByType(MOCK_DATA, POKEMON_TYPE); // ACT
+    // ACT
+    const result = filterByType(MOCK_DATA, POKEMON_TYPE);
 
     // ASSERT
     expect(result.length).toBe(EXPECTED_LENGTH);
@@ -40,9 +42,19 @@ describe("filterByType", () => {
   });
 
   test("should return only water type Pokemon", () => {
-    const result = filterByType(MOCK_DATA, "water");
-    expect(result.length).toBe(1);
-    expect(result[0].name).toBe("Squirtle");
+    // ARRANGE
+    const POKEMON_TYPE = "water";
+
+    // ARRANGE Outputs
+    const EXPECTED_LENGTH = 1;
+    const EXPECTED_NAME = "Squirtle";
+
+    // ACT
+    const result = filterByType(MOCK_DATA, POKEMON_TYPE);
+
+    // ASSERT
+    expect(result.length).toBe(EXPECTED_LENGTH);
+    expect(result[0].name).toBe(EXPECTED_NAME);
   });
 
   test("should return empty array for non existent type", () => {
