@@ -28,8 +28,8 @@ export const getStrongestPokemon = (pokemonList) => {
 // Write failing tests, watch them fail, and write the fix.
 
 export const sortByName = (pokemonList) => {
-  // TODO: Implement this function
-  // Hint: Use array sort method
-  // Remember: Don't mutate the original array!
-  return pokemonList;
+  // NOTES: Spread operator to make a copy of the list (sort will mutate the original data)
+  // .sort() compares a versus b
+  // name of a localeCompare name of b
+  return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
 };
