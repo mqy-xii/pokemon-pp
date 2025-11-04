@@ -99,7 +99,7 @@ describe("getStrongestPokemon", () => {
     // ACT – running the experiment
     const actualOutput = getStrongestPokemon(INPUT);
 
-    // ASSERT –
+    // ASSERT – conclusion
     expect(actualOutput).toEqual(EXPECTED_OUTPUT);
   });
 });

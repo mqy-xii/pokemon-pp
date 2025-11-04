@@ -1,9 +1,3 @@
-export const calculateAverageHP = (pokemonList) => {
-  if (pokemonList.length === 0) return 0;
-  const totalHP = pokemonList.reduce((sum, pokemon) => sum + pokemon.hp, 0);
-  return totalHP / pokemonList.length;
-};
-
 export const filterByType = (pokemonList, type) => {
   return pokemonList.filter((pokemon) => pokemon.type === type);
 };
@@ -32,4 +26,10 @@ export const sortByName = (pokemonList) => {
   // name of a localeCompare name of b
   return [...pokemonList].sort((a, b) => a.name.localeCompare(b.name));
   // ALTERNATIVE: return structuredClone(pokemonList).sort((a, b) => a.name.localeCompare(b.name))
+};
+
+export const calculateAverageHP = (pokemonList) => {
+  if (pokemonList.length === 0) return 0;
+  const totalHP = pokemonList.reduce((sum, pokemon) => sum + pokemon.hp, 0);
+  return totalHP / pokemonList.length;
 };
